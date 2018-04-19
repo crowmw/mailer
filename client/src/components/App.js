@@ -11,6 +11,8 @@ const { Content, Footer } = Layout
 class App extends Component {
   componentDidMount() {
     this.props.fetchUser()
+    // this.props.postPizza()
+    this.props.fetchPizzas()
   }
 
   render() {
