@@ -1,13 +1,11 @@
 import React, { Component } from 'react'
 import { BrowserRouter, Route } from 'react-router-dom'
 import { connect } from 'react-redux'
-import { Layout } from 'antd'
 import * as actions from '../actions'
 
-import Header from './Header'
-import Landing from './Landing'
+import Header from './header/Header'
+import PizzaList from './pizzaList/PizzaList'
 
-const { Content, Footer } = Layout
 class App extends Component {
   componentDidMount() {
     this.props.fetchUser()
@@ -17,19 +15,12 @@ class App extends Component {
 
   render() {
     return (
-      <Layout style={{ height: '100%' }}>
-        <BrowserRouter>
-          <div>
-            <Header />
-            <Content style={{ padding: '25px 50px' }}>
-              <Route exact path="/" component={Landing} />
-            </Content>
-            <Footer style={{ textAlign: 'center' }}>
-              sample-app @2018 Created by Mateusz Woźniak
-            </Footer>
-          </div>
-        </BrowserRouter>
-      </Layout>
+      <BrowserRouter>
+        <div className="container">
+          <Header />
+          <Route exact path="/" component={PizzaList} />
+        </div>
+      </BrowserRouter>
     )
   }
 }
