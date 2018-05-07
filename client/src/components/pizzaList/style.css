@@ -1,3 +1,62 @@
 .pizza-list{
   margin-top: 8px;
 }
+
+.pizza-list__item {
+  display: grid;
+  border: 1px solid olivedrab;
+  padding: 8px;
+  margin-bottom: 16px;
+
+  grid-template-columns:82px auto;
+  grid-template-rows: 24px auto 24px;
+
+  grid-column-gap: 8px;
+  grid-row-gap: 8px;
+}
+
+.pizza-list__item__image {
+  border-radius: 50%;
+  height: 82px;
+  width: 82px;
+
+  grid-column: 1;
+  grid-row-start: 1;
+  grid-row-end: 4;
+
+  align-self: center;
+}
+
+.pizza-list__item__header {
+  font-size: 24px;
+  font-weight: 500;
+  align-self: center;
+  
+  grid-column: 2;
+  grid-row: 1;
+}
+
+.pizza-list__item__content {
+  align-self: center;
+}
+
+.pizza-list__item__footer {
+  display: grid;
+
+  grid-template-columns: 70% 30%;
+  grid-template-rows: auto;
+}
+
+.footer__price-list{
+  grid-column: 1;
+  grid-row: 1;
+}
+
+.price-list__item{
+  display: inline;
+}
+
+.price-list__item:not(:first-child):before{
+  content: " | ";
+  padding: 0 8px;
+}

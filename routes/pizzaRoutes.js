@@ -1,5 +1,5 @@
 const mongoose = require('mongoose')
-const Pizza = mongoose.model('pizzas')
+const Pizza = mongoose.model('Pizza')
 
 const requireLogin = require('../middlewares/requireLogin')
 

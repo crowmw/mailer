@@ -10,4 +10,4 @@ const toppingSchema = new Schema({
   price: Number
 })
 
-mongoose.model('toppings', toppingSchema)
+mongoose.model('Topping', toppingSchema)

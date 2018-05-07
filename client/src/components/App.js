@@ -5,11 +5,11 @@ import * as actions from '../actions'
 
 import Header from './header/Header'
 import PizzaList from './pizzaList/PizzaList'
+import Toppings from './toppings/Toppings'
 
 class App extends Component {
   componentDidMount() {
     this.props.fetchUser()
-    // this.props.postPizza()
     this.props.fetchPizzas()
   }
 
@@ -19,6 +19,7 @@ class App extends Component {
         <div className="container">
           <Header />
           <Route exact path="/" component={PizzaList} />
+          <Route exact path="/toppings" component={Toppings} />
         </div>
       </BrowserRouter>
     )
