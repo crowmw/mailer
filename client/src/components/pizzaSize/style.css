@@ -1,0 +1,44 @@
+.pizza-size {
+  display: grid;
+  align-items: center;
+  flex-direction: column;
+  
+  grid-template-rows: 300px auto;
+  justify-items: center;
+}
+
+.pizza-size__image{
+  width: 200px;
+  height: 200px;
+  border-radius: 50%;
+  transition: all 300ms ease-in-out;
+
+  grid-row: 1;
+}
+
+.pizza-size__image--small{
+  width: 150px;
+  height: 150px;
+  background-image: url('http://via.placeholder.com/150x150?text=150_x_150');
+}
+.pizza-size__image--medium{
+  width: 200px;
+  height: 200px;
+  background-image: url('http://via.placeholder.com/200x200?text=200_x_200');
+}
+.pizza-size__image--big{
+  width: 250px;
+  height: 250px;
+  background-image: url('http://via.placeholder.com/250x250?text=250_x_250');
+}
+.pizza-size__image--mega{
+  width: 300px;
+  height: 300px;
+  background-image: url('http://via.placeholder.com/300x300?text=300_x_300');
+}
+
+.pizza-size__slider {
+  width: 200px;
+
+  grid-row: 2;
+}

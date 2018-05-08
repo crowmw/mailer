@@ -5,7 +5,7 @@ import * as actions from '../actions'
 
 import Header from './header/Header'
 import PizzaList from './pizzaList/PizzaList'
-import Toppings from './toppings/Toppings'
+import PizzaCustomization from './pizzaCustomization/pizzaCustomization'
 
 class App extends Component {
   componentDidMount() {
@@ -22,7 +22,11 @@ class App extends Component {
         <div className="container">
           <Header />
           <Route exact path="/" component={PizzaList} />
-          <Route exact path="/toppings" component={Toppings} />
+          <Route
+            exact
+            path="/pizza/customization"
+            component={PizzaCustomization}
+          />
         </div>
       </BrowserRouter>
     )

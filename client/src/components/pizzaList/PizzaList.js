@@ -6,7 +6,7 @@ import './style.css'
 
 class PizzaList extends Component {
   handleAddToCart = pizza => {
-    this.props.history.push('/toppings')
+    this.props.history.push('/pizza/customization')
   }
 
   listRenderer = () => {
@@ -28,9 +28,9 @@ class PizzaList extends Component {
   }
 }
 
-const mapStateToProps = ({ pizzas }) => {
+const mapStateToProps = state => {
   return {
-    pizzas
+    pizzas: state.pizza.entities
   }
 }
 

@@ -1,5 +1,10 @@
 import axios from 'axios'
-import { FETCH_USER, FETCH_PIZZAS, FETCH_TOPPINGS } from './types'
+import {
+  FETCH_USER,
+  FETCH_PIZZAS,
+  FETCH_TOPPINGS,
+  CHANGE_CURRENT_SIZE
+} from './types'
 import { normalize } from 'normalizr'
 import * as normalizeSchema from '../services/normalizr'
 
@@ -52,3 +57,8 @@ export const postTopping = () => async dispatch => {
   const res = await axios.post('/api/topping', body)
   console.log(res)
 }
+
+export const changeCurrentSize = size => ({
+  type: CHANGE_CURRENT_SIZE,
+  payload: Number(size)
+})

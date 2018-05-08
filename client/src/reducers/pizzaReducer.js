@@ -1,6 +1,13 @@
+import { combineReducers } from 'redux'
+
+import currentReducer from './currentReducer'
 import { FETCH_PIZZAS } from '../actions/types'
 
-export default function(state = null, action) {
+const initialState = {
+  entities: null
+}
+
+export const entities = (state = initialState.entities, action) => {
   switch (action.type) {
     case FETCH_PIZZAS:
       return action.payload
@@ -8,3 +15,10 @@ export default function(state = null, action) {
       return state
   }
 }
+
+const pizzaReducer = combineReducers({
+  entities,
+  current: currentReducer
+})
+
+export default pizzaReducer
