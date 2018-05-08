@@ -9,8 +9,11 @@ import Toppings from './toppings/Toppings'
 
 class App extends Component {
   componentDidMount() {
+    // this.props.postPizza()
     this.props.fetchUser()
     this.props.fetchPizzas()
+    this.props.fetchToppings()
+    // this.props.postTopping()
   }
 
   render() {

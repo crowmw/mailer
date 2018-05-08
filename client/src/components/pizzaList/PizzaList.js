@@ -6,7 +6,7 @@ import './style.css'
 
 class PizzaList extends Component {
   handleAddToCart = pizza => {
-    console.log(pizza)
+    this.props.history.push('/toppings')
   }
 
   listRenderer = () => {
@@ -16,8 +16,7 @@ class PizzaList extends Component {
         <PizzaItem
           key={pizza._id}
           id={pizza._id}
-          name={pizza.name}
-          price={pizza.price}
+          {...pizza}
           onAddToCart={this.handleAddToCart}
         />
       ))

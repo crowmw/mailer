@@ -5,20 +5,20 @@ const requireLogin = require('../middlewares/requireLogin')
 
 module.exports = app => {
   app.get('/api/pizza', async (req, res) => {
-    const pizzas = await Pizza.find({})
+    const pizzas = await Pizza.find({}).populate('toppings.topping')
 
     res.send(pizzas)
   })
 
   app.post('/api/pizza', async (req, res) => {
-    const { name, description, price, topping } = req.body
+    const { name, description, price, toppings } = req.body
 
     const pizza = new Pizza({
       name,
       description,
       price,
-      topping: topping.map(top => {
-        return { id: top.id, amount: top.amount }
+      toppings: toppings.map(top => {
+        return { topping: top.topping, amount: top.amount, _id: top.topping }
       })
     })
 

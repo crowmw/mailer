@@ -1,9 +1,9 @@
 import React from 'react'
+import PropTypes from 'prop-types'
 
 import './style.css'
 
-const PizzaItem = ({ id, name, description, price, onAddToCart }) => {
-  price = [...price, 80]
+const PizzaItem = ({ id, name, price, toppings, onAddToCart }) => {
   return (
     <li className="pizza-list__item" key={id}>
       <img
@@ -13,7 +13,7 @@ const PizzaItem = ({ id, name, description, price, onAddToCart }) => {
       />
       <div className="pizza-list__item__header">{name}</div>
       <div className="pizza-list__item__content">
-        Lorem Ipsum dolores adsdbasudbakushb
+        {Object.values(toppings).map(topping => `${topping.topping.name}, `)}
       </div>
       <div className="pizza-list__item__footer">
         <ul className="footer__price-list">
@@ -33,6 +33,14 @@ const PizzaItem = ({ id, name, description, price, onAddToCart }) => {
       </div>
     </li>
   )
+}
+
+PizzaItem.propTypes = {
+  id: PropTypes.string.isRequired,
+  name: PropTypes.string,
+  price: PropTypes.arrayOf(PropTypes.number),
+  toppings: PropTypes.object,
+  onAddToCart: PropTypes.func
 }
 
 export default PizzaItem
