@@ -6,6 +6,7 @@ import * as actions from '../actions'
 import Header from './header/Header'
 import PizzaList from './pizzaList/PizzaList'
 import PizzaCustomization from './pizzaCustomization/pizzaCustomization'
+import './style.css'
 
 class App extends Component {
   componentDidMount() {

@@ -13,7 +13,7 @@ const PizzaItem = ({ id, name, price, toppings, onAddToCart }) => {
       />
       <div className="pizza-list__item__header">{name}</div>
       <div className="pizza-list__item__content">
-        {Object.values(toppings).map(topping => `${topping.topping.name}, `)}
+        {toppings.map(topping => `${topping.topping.name}, `)}
       </div>
       <div className="pizza-list__item__footer">
         <ul className="footer__price-list">

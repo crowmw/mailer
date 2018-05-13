@@ -3,9 +3,12 @@ import { connect } from 'react-redux'
 
 import PizzaItem from './PizzaItem'
 import './style.css'
+import { getPizzaEntities } from '../../selectors/pizzaSelector'
+import { updateCurrentPizza } from '../../actions/index'
 
 class PizzaList extends Component {
   handleAddToCart = pizza => {
+    this.props.updateCurrentPizza(pizza)
     this.props.history.push('/pizza/customization')
   }
 
@@ -30,8 +33,8 @@ class PizzaList extends Component {
 
 const mapStateToProps = state => {
   return {
-    pizzas: state.pizza.entities
+    pizzas: getPizzaEntities(state)
   }
 }
 
-export default connect(mapStateToProps)(PizzaList)
+export default connect(mapStateToProps, { updateCurrentPizza })(PizzaList)

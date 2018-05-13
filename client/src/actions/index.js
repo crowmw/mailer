@@ -3,10 +3,13 @@ import {
   FETCH_USER,
   FETCH_PIZZAS,
   FETCH_TOPPINGS,
-  CHANGE_CURRENT_SIZE
+  UPDATE_CURRENT_SIZE,
+  UPDATE_CURRENT_PIZZA,
+  UPDATE_CURRENT_TOPPING
 } from './types'
 import { normalize } from 'normalizr'
 import * as normalizeSchema from '../services/normalizr'
+import { getCurrentPizzaDefaultTopping } from '../selectors/pizzaSelector'
 
 export const fetchUser = () => async dispatch => {
   const res = await axios.get('/api/current_user')
@@ -58,7 +61,37 @@ export const postTopping = () => async dispatch => {
   console.log(res)
 }
 
-export const changeCurrentSize = size => ({
-  type: CHANGE_CURRENT_SIZE,
+export const updateCurrentSize = size => ({
+  type: UPDATE_CURRENT_SIZE,
   payload: Number(size)
 })
+
+export const updateCurrentPizza = pizza => ({
+  type: UPDATE_CURRENT_PIZZA,
+  payload: pizza
+})
+
+export const updateCurrentTopping = topping => (dispatch, getState) => {
+  const currentPizzaTopping = getCurrentPizzaDefaultTopping(getState())
+
+  if (
+    currentPizzaTopping[topping] &&
+    currentPizzaTopping[topping].amount === 2
+  ) {
+    return dispatch({
+      type: UPDATE_CURRENT_TOPPING,
+      payload: {
+        topping,
+        amount: 0
+      }
+    })
+  } else {
+    return dispatch({
+      type: UPDATE_CURRENT_TOPPING,
+      payload: {
+        topping,
+        amount: 1
+      }
+    })
+  }
+}

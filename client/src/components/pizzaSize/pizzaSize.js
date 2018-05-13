@@ -9,7 +9,7 @@ const sizeNames = [
   'pizza-size__image--mega'
 ]
 
-export const PizzaSize = ({ size, onSizeChange }) => {
+const PizzaSize = ({ size, onSizeChange }) => {
   return (
     <div className="pizza-size">
       <div className={`pizza-size__image ${sizeNames[size]}`} />
@@ -30,3 +30,5 @@ PizzaSize.propTypes = {
   onSizeChange: PropTypes.func.isRequired,
   size: PropTypes.number
 }
+
+export default PizzaSize
